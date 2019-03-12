@@ -15,7 +15,7 @@ pyMigrate.py help
 pyMigrate.py app_root_directory virtual_env_directory
 ```
 
-app_root_directory : The root directory of your project
-virtual_env_directory : The place where virtualenv should be created
+<p><strong>app_root_directory</strong> : The root directory of your project</p>
+<p><strong>virtual_env_directory</strong> : The place where virtualenv should be created</p>
 
 **This project is only for python3 environments**
