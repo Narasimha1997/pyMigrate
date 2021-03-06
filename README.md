@@ -3,6 +3,11 @@ A tool for automatically migrating any python source code to a virtual environme
 dependencies automatically identified and installed. You can also use this tool to generate requirements.txt for your python code base, in general, this tool will help you to bring your old/hobby 
 python codebase to production/distribution.
 
+**Note**: As of now, the dependencies are identified based on module names, not the package name. Therefore, any the dependencies will be properly listed in 
+requirements.txt only if package name == module name, this is because the python runtime operates at modules level, while pip works at package level, the package can have a different name 
+than the module. We are still looking for a better/possible approaches to mitigate this issue. As of now, you many have to manually change the generated requirements.txt for some packages that are not properly identified.
+
+
 ## Features:
 1. A simple CLI tool.
 2. Creates and installs a virtual environment automatically.
