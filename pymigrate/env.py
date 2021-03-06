@@ -49,7 +49,7 @@ def install_deps(virtual_env, app):
     for dep in set(deps):
         logging.info('Installing ' + str(dep))
         exec_suffix = ['install', dep, '--prefix='+virtual_env]
-        call([os.path.join(virtual_env, 'bin/pip3'), *exec_suffix])
+        call([os.path.join(virtual_env, 'bin', 'pip3'), *exec_suffix])
         logging.info('Installed {}'.format(dep))
 
 

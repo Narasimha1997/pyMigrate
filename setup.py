@@ -5,7 +5,7 @@ long_description = open('README.md').read()
 
 setup(
         name='py-migrate',
-        version='0.0.2',
+        version='0.0.3',
         author='Narasimha Prasanna HN',
         author_email='narasimhaprasannahn@gmail.com',
         url='https://github.com/Narasimha1997/pyMigrate',
