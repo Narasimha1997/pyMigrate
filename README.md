@@ -1,21 +1,39 @@
 # pyMigrate
-A tool that automates the transformation of normal python projects to virtual environments. In simple words, the tool creates a virtual environment and automatically installs all the dependencies used in your project by identifying them and migrates the project to the newly created virtual environment.
+A tool for automatically migrating any python source code to a virtual environment with all 
+dependencies automatically identified and installed. You can also use this tool to generate requirements.txt for your python code base, in general, this tool will help you to bring your old/hobby 
+python codebase to production/distribution.
 
-## Set-up : 
-This package will be released on pip soon, until then, you can copy pyMigrate to python package path and use pyMigrate.py to perform migration.
+## Features:
+1. A simple CLI tool.
+2. Creates and installs a virtualenv automatically.
+3. Identifies the dependencies (external) automatically and populates the `requirements.txt`
+4. Installs dependencies in the virtualenv
 
-## Usage: 
-
-For help : 
+## How to install:
+The package is available on pip. Run:
 ```
-pyMigrate.py help
+pip3 install pymigrate
+```
+Or you can clone the repository and install manually:
+```
+git clone https://github.com/Narasimha1997/pyMigrate.git
+cd pyMigrate && python3 setup.py install
 ```
 
+## How to run this tool:
+Once installed, the tool will be available through command `pymigrate`. Say you have a codebase at `/path/to/source` and you want to generate the virtualenv with all the dependencies and source code installed at `/path/to/target`, then:
+
 ```
-pyMigrate.py app_root_directory virtual_env_directory
+pymigrate /path/to/source /path/to/target
+```
+command will generate the virtualenv for you. The target must be an absloute path.
+
+#### Generating requirements.txt alone, without setting up virtualenv:
+You can set `--requirements` to generate `requirements.txt` alone, this will not set-up the virtualenv. Say you have to generate `requirements.txt` at `/path/to/output`, then:
+
+```
+pymigrate /path/to/source /path/to/target --requirements
 ```
 
-<p><strong>app_root_directory</strong> : The root directory of your project</p>
-<p><strong>virtual_env_directory</strong> : The place where virtualenv should be created</p>
-
-**This project is only for python3 environments**
+## Contributing:
+Feel free to contribute by raising issues, making PRs or suggesting features.
