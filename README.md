@@ -20,7 +20,7 @@ python codebase to production/distribution.
 ## How to install:
 The package is available on pip. Run:
 ```
-pip3 install pymigrate
+pip3 install py-migrate
 ```
 Or you can clone the repository and install manually:
 ```
