@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 long_description = open('README.md').read()
 
 setup(
-        name='pymigrate',
+        name='py-migrate',
         version='1.0.0',
         author='Narasimha Prasanna HN',
         author_email='narasimhaprasannahn@gmail.com',
@@ -16,7 +16,7 @@ setup(
         packages=find_packages(),
         entry_points={
             'console_scripts': [
-                'pymigrate = pymigrate.main:main'
+                'pymigrate = py_migrate.main:main'
             ]
         },
         classifiers=(
