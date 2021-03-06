@@ -28,7 +28,21 @@ def migrate(virt_dir, path):
 
 def install_deps(virtual_env, app):
     logging.info('Scanning for dependencies..')
-    deps = DepsHandle(root=app).run_task()
+    deps = []
+
+    # if requirements.txt exists, no need to identify dependencies
+    req_path = os.path.join(app, "requirements.txt")
+    if os.path.exists(req_path):
+        req_data = open(req_path, 'r').read()
+        deps = req_data.split("\n")
+        logging.info("Found requirements.txt in the local project")
+        logging.info(
+            "Found following packages in requirements.txt - {}"
+            .format(deps)
+        )
+    else:
+        deps = DepsHandle(root=app).run_task()
+
     logging.info('Found dependencies : {}'.format(deps))
     logging.info('Installing dependencies .... ')
 
