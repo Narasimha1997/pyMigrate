@@ -16,7 +16,7 @@ setup(
         packages=find_packages(),
         entry_points={
             'console_scripts': [
-                'pymigrate = py_migrate.main:main'
+                'pymigrate = pymigrate.main:main'
             ]
         },
         classifiers=(
