@@ -1,9 +1,21 @@
 import argparse
 import logging
+import signal
+import os
 
 from .env import gen_requirements, gen_virt_env, check_path_exist
 
 logging.basicConfig(level=logging.INFO)
+
+
+def sig_handle():
+    print('Bye! Thanks for using this tool')
+    os._exit(0)
+
+
+signal.signal(signal.SIGINT, sig_handle)
+print('Press Ctrl+C to interrupt any time')
+
 
 parser = argparse.ArgumentParser(
     description="""
