@@ -20,11 +20,11 @@ setup(
                 'pymigrate = pymigrate.main:main'
             ]
         },
-        classifiers=(
+        classifiers=[
             "Programming Language :: Python :: 3",
             "License :: OSI Approved :: MIT License",
             "Operating System :: OS Independent",
-        ),
+        ],
         keywords='python venv automation',
         zip_safe=False,
         install_requires=[
