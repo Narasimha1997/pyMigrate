@@ -3,9 +3,10 @@ from setuptools import setup, find_packages
 
 long_description = open('README.md').read()
 
+
 setup(
         name='py-migrate',
-        version='0.0.4',
+        version='0.1.0',
         author='Narasimha Prasanna HN',
         author_email='narasimhaprasannahn@gmail.com',
         url='https://github.com/Narasimha1997/pyMigrate',
@@ -25,5 +26,8 @@ setup(
             "Operating System :: OS Independent",
         ),
         keywords='python venv automation',
-        zip_safe=False
+        zip_safe=False,
+        install_requires=[
+            "simple-term-menu==0.10.5"
+        ]
 )

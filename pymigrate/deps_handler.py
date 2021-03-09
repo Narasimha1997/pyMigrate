@@ -83,9 +83,13 @@ class DepsHandle:
                 # print(package_name)
 
                 for top_level_entry in top_level_entries:
+                    top_level_entry = top_level_entry.strip()
                     if top_level_entry != "" and \
-                                top_level_entry not in package_index:
-                        package_index[top_level_entry.strip()] = package_name
+                            top_level_entry not in package_index:
+                        package_index[top_level_entry] = [package_name]
+                    elif top_level_entry != "" and \
+                            top_level_entry in package_index:
+                        package_index[top_level_entry].append(package_name)
 
         # print(package_index)
         return package_index
@@ -138,6 +142,6 @@ class DepsHandle:
                     if dep in self.package_index:
                         identified_packages[dep] = self.package_index[dep]
                     else:
-                        identified_packages[dep] = ""
+                        identified_packages[dep] = []
 
         return identified_packages
