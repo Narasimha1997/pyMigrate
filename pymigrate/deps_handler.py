@@ -124,24 +124,32 @@ class DepsHandle:
         internal_packages, files = self.walker.traverse()
         lists = self.pool.map(self.task, files)
         identified_packages = {}
-        # add only external packages to list:
-        logging.info("All deps - {}".format(lists))
+
+        all_deps = set()
         for deps in lists:
             for dep in deps:
                 dep = dep.strip()
-                should_include = (
-                    (dep not in internal_packages) and
-                    (not self.check_is_builtin(dep)) and
-                    (not self.check_is_stdlib(dep))
-                )
-                if should_include:
-                    # get the package name and keep it
-                    if dep in identified_packages:
-                        continue
+                if dep == "":
+                    continue
+                all_deps.add(dep)
 
-                    if dep in self.package_index:
-                        identified_packages[dep] = self.package_index[dep]
-                    else:
-                        identified_packages[dep] = []
+        # add only external packages to list:
+        logging.info("All deps - {}".format(all_deps))
+        for dep in all_deps:
+            # dep = dep.strip()
+            should_include = (
+                (dep not in internal_packages) and
+                (not self.check_is_builtin(dep)) and
+                (not self.check_is_stdlib(dep))
+            )
+            if should_include:
+                # get the package name and keep it
+                if dep in identified_packages:
+                    continue
+
+                if dep in self.package_index:
+                    identified_packages[dep] = self.package_index[dep]
+                else:
+                    identified_packages[dep] = []
 
         return identified_packages

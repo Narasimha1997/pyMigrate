@@ -115,6 +115,9 @@ def select_dependency(dep, packages):
                 bcolors.WARNING + "Module {} ignored.".format(dep) +
                 bcolors.ENDC
             )
+
+            return ""
+
         elif selected_idx == len(options) - 2:
             pkg_name = ask_package_input(dep)
             if pkg_name == "":
